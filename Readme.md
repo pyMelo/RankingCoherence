@@ -1,6 +1,6 @@
 ## Amazon Book Reviews Sentiment Analysis
 
-## Description of the Problem.
+## 🚩 Description of the Problem. 
 This project analyzes Amazon book reviews to assess:
 - The sentiment of the various comments
 - The relationship between **review score** (1-5 stars) and textual content.
@@ -31,7 +31,7 @@ Thanks to **Big Data** and the **Cloud**, it has been possible to:
 
 ---
 
-## Description of the Data
+## 📝 Description of the Data
 - **Origin**: Amazon Book Reviews Dataset.
 - **Acquisition**: KAGGLE.
 - **Details**:
@@ -40,8 +40,8 @@ Thanks to **Big Data** and the **Cloud**, it has been possible to:
 - **Format**: CSV.
 - **Size**: 2.7 GB.
 
-## Description of the Application
-### Flow of the Project.
+# 🔧 Description of the Application
+###  Flow of the Project.
 1. **Cleaning and Table Creation**
    - **Script**: `review_title.py`
    - **Description**: Filters and cleans up the dataset.
@@ -60,43 +60,50 @@ Thanks to **Big Data** and the **Cloud**, it has been possible to:
       - Reviews with 5 stars contain more words → Argumented satisfaction.
       - Reviews with 1-2 stars contain few words → Lack of detail.
 
-## Script for plots
-1. - **Script** `histogram_sentiment.py`
+## 📊 Script for plots
+### 1. `histogram_sentiment.py`
    - **Description** : Takes as input the directory created by *sentiment_text.py* and returns the plot (used locally) in our local envivronment
    - **Use**: 
    ```bash
-   python istogramma_sentiment.py gs://esame-cloud/outputParaSentiment ./histogram_sentiment.png
+   python histogram_sentiment.py gs://esame-cloud/outputParaSentiment ./histogram_sentiment.png
    ```
-   - **Observation**
-   ![](images/histogram.png)
+#### Observation
+
+  <div align="center">
+      <img src="images/histogram.png" alt="Histogram positive/negative" width="500"/>
+    </div>
+     
    - The number of positive reviews (green bars) increases as the review score increases, with the highest number of positive reviews for 5-star ratings.
    - The number of negative reviews (red bars) decreases as the review score increases, indicating that books with higher ratings tend to receive fewer negative reviews.
    - This suggests that users tend to provide more detailed and argued feedback when they are satisfied with a product, while negative reviews are more concise.
 
-2. - **Script** `boxplot_count.py`.
+### 2. `boxplot_count.py`
    - **Description** : Takes as input the directory created by *count_review* and returns a directory containing the boxplot for both negative and positive reviews.
    - **Use**
-   ```bash
+  ```bash
    python boxplot_count.py gs://esame-cloud/outputCount ./plots
-   ```
-   - **Observation**:
-   ![](images/boxplot_positive_reviews.png)
+  ```
 
+#### Observation
    - **Positive**
-      - The number of positive reviews (green bars) increases as the review score increases, with the highest number of positive reviews for 5-star ratings.
-      - The number of negative reviews (red bars) decreases as the review score increases, indicating that books with higher ratings tend to receive fewer negative reviews.
 
-      - The number of negative reviews (red bars) decreases as the review score increases, indicating that books with a higher rating tend to receive fewer negative reviews.
-      - This suggests that users tend to provide more detailed and argued feedback when they are satisfied with a product, while negative reviews are more concise.
-      - The median number of words of negative reviews is lower than positive reviews, indicating that users tend to provide less detailed feedback for books they are dissatisfied with.
-   - **Negative**
-   ![](images/boxplot_negative_reviews.png)
+      <div align="center">
+       <img src="images/boxplot_positive_reviews.png" alt="Boxplot Positive Reviews" width="500"/>
+      </div>
+      
+      -  The median word count for negative reviews is lower compared to positive reviews, indicating that users tend to provide less detailed feedback for books they are unsatisfied with.
+      -  The upper quartile and outliers show that some users do write longer negative reviews, but the overall trend is towards shorter negative feedback.
+  - **Negative**
+  
+    <div align="center">
+              <img src="images/boxplot_negative_reviews.png" alt="Boxplot Negative Reviews" width="500"/>
+    </div>
 
       - The upper quartile and outliers show that some users write longer negative reviews, but the general trend is toward shorter negative feedback.
       - The median number of words for positive reviews is higher than for negative reviews, suggesting that users provide more detailed and argued feedback when they are satisfied with a product.
       - The upper quartile and outliers show that many users write long positive reviews, further reinforcing the trend toward more comprehensive feedback for books with a high rating.
 
-## Software Design
+## 📚 Software Design
 - **Architettura**: Progetto suddiviso in script modulari.
 - **Libraries Used**:
    - Apache Spark: Used for distributed processing of large volumes of data.
@@ -118,7 +125,7 @@ Thanks to **Big Data** and the **Cloud**, it has been possible to:
 
 ---
 
-## Usage
+## ⚙️ Usage
 
 ### **1. Table Creation**.
 To clean the dataset and prepare it for sentiment analysis, run the following command with **Google Cloud Dataproc**:
@@ -128,7 +135,7 @@ gcloud dataproc jobs submit pyspark \.
     --cluster mycluster \
     --region=europe-southwest1 \
     review_title.py \
-    -- gs://exame-cloud/input/Books_rating.csv gs://exame-cloud/outputParaSentiment
+    -- gs://esame-cloud/input/Books_rating.csv gs://esame-cloud/outputParaSentiment
 ```
 ### **2. Sentiment Analysis**
 To perform sentiment analysis on the cleaned data, we use the following command:
@@ -139,7 +146,7 @@ spark-submit \
     sentiment_text.py
 spark-submit --jars gcs-connector-hadoop3-latest.jar sentiment_text.py
 ```
-The above script was used in the absence of clusters due to issues regarding the use of the NLTK library, as each node on the clusters needed to have 
+The above script was used in the absence of clusters due to issues regarding the use of the NLTK library, as each node on the clusters needed to have the dictionary itself.
 ### **3. In-Depth Analysis of Reviews**
 To calculate the number of words in reviews and analyze the relationship between **positive and negative comments** and the number of words used, we ran the following command on **Google Cloud Dataproc**:
 
@@ -148,10 +155,10 @@ gcloud dataproc jobs submit pyspark \
     --cluster mycluster \
     --region=europe-southwest1 \
     count_review.py \
-    -- gs://exame-cloud/output gs://exame-cloud/outputCount
+    -- gs://esame-cloud/output gs://esame-cloud/outputCount
 ```
 
-#### **Technical Choices and Problems Encountered**
+## 🛠 **Technical Choices and Problems Encountered**
 During project development and implementation of sentiment analysis, we faced several difficulties that influenced the final choices:
 
 1. **Problems with Spark NLP**:  
@@ -169,18 +176,22 @@ This solution, although not optimal, allowed us to complete the analysis and obt
 
 ---
 
-## Performance Evaluation
+## ❗️ Performance Evaluation
 During the execution of the project, we measured the impact of computational resources on processing performance:
 
 
 ### **Speed-Up with Number of vCPUs and Nodes**.
 By increasing the number of **vCPUs** and nodes in the **Dataproc** cluster, we observed a significant reduction in execution time:
 
-- **1 node, 2 vCPUs**: ---
-- **2 nodes, 4 vCPUs**: ---  
-- **4 nodes, 8 vCPUs**: ---  
+|                | Dataproc Cluster        | Seconds | *count_review.py*|
+|----------------|--------------------------|-------------|------------|
+| **Worker Nodes** | 2 worker nodes           | | |
+|                | 3 worker nodes           | | |
+| **CPU**         | 2 cpu                   | | |
+|                | 3 cpu                   | | |
+| **VM** | GCS VM | | |
+| **Owner laptop**        | Local Machine | | |
 
-The improvement is proportional to the increase in resources up to a certain point, beyond which a **coordination overhead** occurs between nodes.
 
 ### **Overheads Identified**.
 - Management of **NLTK** (`vader_lexicon`) dictionaries introduced delays, especially when executed on multiple nodes.  
@@ -192,13 +203,13 @@ The improvement is proportional to the increase in resources up to a certain poi
 
 ---
 
-### **implementation challenges**
+### **Implementation challenges**
 - **Compatibility between libraries** (e.g., Spark NLP and nltk).  
 - Computational resource management for distributed processing on **Dataproc**.
 
 ---
 
-## Conclusions.
+## 🏆 Conclusions
 The project partially achieved its main objectives by providing in-depth analysis of reviews and addressing significant challenges related to Big Data processing.
 
 
@@ -218,7 +229,7 @@ The project partially achieved its main objectives by providing in-depth analysi
 
 ---
 
-## References
+## 📎 References
 1. [Apache Spark Documentation](https://spark.apache.org)  
 2. [NLTK Documentation](https://www.nltk.org)  
 3. [Google Cloud Storage](https://cloud.google.com/storage)  
