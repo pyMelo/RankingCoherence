@@ -68,7 +68,7 @@ Thanks to **Big Data** and the **Cloud**, it has been possible to:
    python istogramma_sentiment.py gs://esame-cloud/outputParaSentiment ./histogram_sentiment.png
    ```
    - **Observation**
-   ![](image/histogram.png)
+   ![](images/histogram.png)
    - The number of positive reviews (green bars) increases as the review score increases, with the highest number of positive reviews for 5-star ratings.
    - The number of negative reviews (red bars) decreases as the review score increases, indicating that books with higher ratings tend to receive fewer negative reviews.
    - This suggests that users tend to provide more detailed and argued feedback when they are satisfied with a product, while negative reviews are more concise.
@@ -80,7 +80,7 @@ Thanks to **Big Data** and the **Cloud**, it has been possible to:
    python boxplot_count.py gs://esame-cloud/outputCount ./plots
    ```
    - **Observation**:
-   ![](image/boxplot_positive_reviews.png)
+   ![](images/boxplot_positive_reviews.png)
 
    - **Positive**
       - The number of positive reviews (green bars) increases as the review score increases, with the highest number of positive reviews for 5-star ratings.
@@ -90,7 +90,7 @@ Thanks to **Big Data** and the **Cloud**, it has been possible to:
       - This suggests that users tend to provide more detailed and argued feedback when they are satisfied with a product, while negative reviews are more concise.
       - The median number of words of negative reviews is lower than positive reviews, indicating that users tend to provide less detailed feedback for books they are dissatisfied with.
    - **Negative**
-   ![](image/boxplot_negative_reviews.png)
+   ![](images/boxplot_negative_reviews.png)
 
       - The upper quartile and outliers show that some users write longer negative reviews, but the general trend is toward shorter negative feedback.
       - The median number of words for positive reviews is higher than for negative reviews, suggesting that users provide more detailed and argued feedback when they are satisfied with a product.
