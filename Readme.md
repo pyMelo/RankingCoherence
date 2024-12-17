@@ -68,7 +68,7 @@ Thanks to **Big Data** and the **Cloud**, it has been possible to:
    python istogramma_sentiment.py gs://esame-cloud/outputParaSentiment ./histogram_sentiment.png
    ```
    - **Observation**
-   [!image/histogram.png]
+   ![](image/histogram.png)
    - The number of positive reviews (green bars) increases as the review score increases, with the highest number of positive reviews for 5-star ratings.
    - The number of negative reviews (red bars) decreases as the review score increases, indicating that books with higher ratings tend to receive fewer negative reviews.
    - This suggests that users tend to provide more detailed and argued feedback when they are satisfied with a product, while negative reviews are more concise.
@@ -80,7 +80,7 @@ Thanks to **Big Data** and the **Cloud**, it has been possible to:
    python boxplot_count.py gs://esame-cloud/outputCount ./plots
    ```
    - **Observation**:
-   [!image/boxplot_positive_reviews.png]
+   ![](image/boxplot_positive_reviews.png)
 
    - **Positive**
       - The number of positive reviews (green bars) increases as the review score increases, with the highest number of positive reviews for 5-star ratings.
@@ -90,7 +90,7 @@ Thanks to **Big Data** and the **Cloud**, it has been possible to:
       - This suggests that users tend to provide more detailed and argued feedback when they are satisfied with a product, while negative reviews are more concise.
       - The median number of words of negative reviews is lower than positive reviews, indicating that users tend to provide less detailed feedback for books they are dissatisfied with.
    - **Negative**
-   [!image/boxplot_negative_reviews.png]
+   ![](image/boxplot_negative_reviews.png)
 
       - The upper quartile and outliers show that some users write longer negative reviews, but the general trend is toward shorter negative feedback.
       - The median number of words for positive reviews is higher than for negative reviews, suggesting that users provide more detailed and argued feedback when they are satisfied with a product.
@@ -98,12 +98,15 @@ Thanks to **Big Data** and the **Cloud**, it has been possible to:
 
 ## Software Design
 - **Architettura**: Progetto suddiviso in script modulari.
-- **Librerie Utilizzate**:
-  - **Apache Spark**: Elaborazione distribuita.
-  - **NLTK**: Analisi del sentiment.
-  - **PySpark SQL**: Gestione dei dati.
-  - **Google Cloud Storage**: Archiviazione dei dati.
-- **Dipendenze**:
+- **Libraries Used**:
+   - Apache Spark: Used for distributed processing of large volumes of data.
+   - NLTK: Employed for sentiment analysis and handling unstructured text.
+   - PySpark SQL: Tool for efficient manipulation and management of structured data.
+   - Google Cloud Storage: A scalable and secure data storage service, used as the primary repository for input and output.
+   - GCSFS: Library used for efficient and transparent access to files stored on Google Cloud Storage through a file system interface.
+   - Matplotlib: Utilized for data visualization and creating insightful charts and graphs.
+   - Pandas: A powerful library for data manipulation, analysis, and transformation using DataFrames.
+- **Depndencies**:
   - `pyspark`
   - `nltk`
   - `gcsfs`
