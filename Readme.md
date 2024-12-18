@@ -183,14 +183,12 @@ During the execution of the project, we measured the impact of computational res
 ### **Speed-Up with Number of vCPUs and Nodes**.
 By increasing the number of **vCPUs** and nodes in the **Dataproc** cluster, we observed a significant reduction in execution time:
 
-|                | Dataproc Cluster        | Seconds | *count_review.py*|
-|----------------|--------------------------|-------------|------------|
-| **Worker Nodes** | 2 worker nodes           | | |
-|                | 3 worker nodes           | | |
-| **CPU**         | 2 cpu                   | | |
-|                | 3 cpu                   | | |
-| **VM** | GCS VM | | |
-| **Owner laptop**        | Local Machine | | |
+|                | Master Nodes     | Worker Nodes | vCPU | Seconds |
+|----------------|------------------|-------------|------|----------|
+| **e2-standard-2** | 1 nodes       |2 nodes      |   2   |  127.64        |
+|                   | 1 nodes       | 3 nodes     |   2   |       108.14   |
+| **e2-standard-4** | 1 nodes       | 2 nodes     |  4  |          72.09 |
+|                   | 1 nodes      | 3 nodes     |    4  |         65.22|
 
 
 ### **Overheads Identified**.
