@@ -104,7 +104,7 @@ Thanks to **Big Data** and the **Cloud**, it has been possible to:
     - The upper quartile and outliers show that some users do write longer negative reviews, but the overall trend is towards shorter negative feedback.
 
 ## 📚 Software Design
-- **Architettura**: Progetto suddiviso in script modulari.
+- **Architecture**: Project divided into modular scripts.
 - **Libraries Used**:
    - Apache Spark: Used for distributed processing of large volumes of data.
    - NLTK: Employed for sentiment analysis and handling unstructured text.
