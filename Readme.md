@@ -91,17 +91,17 @@ Thanks to **Big Data** and the **Cloud**, it has been possible to:
        <img src="images/boxplot_positive_reviews.png" alt="Boxplot Positive Reviews" width="500"/>
       </div>
       
-      -  The median word count for negative reviews is lower compared to positive reviews, indicating that users tend to provide less detailed feedback for books they are unsatisfied with.
-      -  The upper quartile and outliers show that some users do write longer negative reviews, but the overall trend is towards shorter negative feedback.
+     -  The median word count for positive reviews is higher compared to negative reviews, suggesting that users provide more detailed and argumentative feedback when they are satisfied with a product.
+     -  The upper quartile and outliers show that many users write lengthy positive reviews, further reinforcing the trend of more comprehensive feedback for highly-rated books.
+     -  
   - **Negative**
   
     <div align="center">
               <img src="images/boxplot_negative_reviews.png" alt="Boxplot Negative Reviews" width="500"/>
     </div>
 
-      - The upper quartile and outliers show that some users write longer negative reviews, but the general trend is toward shorter negative feedback.
-      - The median number of words for positive reviews is higher than for negative reviews, suggesting that users provide more detailed and argued feedback when they are satisfied with a product.
-      - The upper quartile and outliers show that many users write long positive reviews, further reinforcing the trend toward more comprehensive feedback for books with a high rating.
+    - The median word count for negative reviews is lower compared to positive reviews, indicating that users tend to provide less detailed feedback for books they are unsatisfied with.
+    - The upper quartile and outliers show that some users do write longer negative reviews, but the overall trend is towards shorter negative feedback.
 
 ## 📚 Software Design
 - **Architettura**: Progetto suddiviso in script modulari.
